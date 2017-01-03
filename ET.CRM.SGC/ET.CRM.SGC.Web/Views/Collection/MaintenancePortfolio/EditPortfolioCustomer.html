@@ -1,0 +1,331 @@
+﻿<div class="row">
+    <div class="container col-md-12">
+        <h4>Mantenimiento Clientes-Cartera</h4>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading"><span class="glyphicon glyphicon-pencil"></span> Editar Datos del Cliente</div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="formID">ID Cliente</label>
+                <label class="col-sm-4 control-label" for="formID">1</label>
+                <label class="col-sm-2 control-label" for="formName">Nombres y Apellidos</label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="formName" placeholder="Ingrese nombre del cliente" />
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="formTypeDoc">Tipo de Documento</label>
+                <label class="col-sm-4 control-label" for="formTypeDoc">DNI</label>
+                <label class="col-sm-2 control-label" for="formNumDoc">Número de Documento</label>
+                <label class="col-sm-4 control-label" for="formNumDoc">65734522</label>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="formSex">Sexo</label>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" name="options" id="opSexFemale" checked> Femenino
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="options" id="opSexMale"> Masculino
+                    </label>
+                </div>
+                <label class="col-sm-2 control-label" for="formCareer">Cargo</label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="formTypeDoc">
+                        <option>Seleccionar</option>
+                        <option>Abogado</option>
+                        <option>Contador</option>
+                        <option>Ingeniero</option>
+                        <option>Operador</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="formSalary">Sueldo</label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="formSalary" placeholder="Ingrese sueldo" />
+                </div>
+                <label class="col-sm-2 control-label" form="formStatus">Estado del Cliente</label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="formStatus">
+                        <option>Seleccionar</option>
+                        <option>Contactado</option>
+                        <option>No llamar</option>
+                        <option>Problemas con Indecopi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-group-sm text-right">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+                    <a class="btn btn-info" href="ListPortafolioCustomer.html"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</a>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="tab-Customer">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" ng-click="selectTab(1)"><span class="glyphicon glyphicon-earphone"></span> Teléfonos</a></li>
+                        <li><a data-toggle="tab" ng-click="selectTab(2)"><span class="glyphicon glyphicon-map-marker"></span> Direcciones</a></li>
+                        <li><a data-toggle="tab" ng-click="selectTab(3)"><span class="glyphicon glyphicon glyphicon-credit-card"></span> Cuentas</a></li>
+                        <li><a data-toggle="tab" ng-click="selectTab(4)"><span class="glyphicon glyphicon-usd"></span> Pagos</a></li>
+                        <li><a data-toggle="tab" ng-click="selectTab(5)"><span class="glyphicon glyphicon-list-alt"></span> Cronograma de Pagos</a></li>
+                    </ul>
+                    <div id="tabs-Customer" class="tab-content table-responsive">
+                        <div id="telephone" class="tab-pane fade active in" ng-show="tab === 1">
+                            <div class="row">
+                                <br />
+                                <div class="col-md-1">
+                                    <a href="NewCustomerTelephone.html" class="btn btn-info "><span class="glyphicon glyphicon-plus"></span> Nuevo</a>
+                                </div>
+                                <div class="col-md-3">
+                                    <input class="form-control" type="text" id="formSearchPhone" placeholder="Buscar teléfono" />
+                                </div>
+                            </div>
+                            <br />
+                            <table class="table-mngt table table-hover table-body-size">
+                                <thead>
+                                    <tr>
+                                        <th>Teléfono</th>
+                                        <th>Proveedor</th>
+                                        <th>Origen</th>
+                                        <th class="col-sm-1"></th>
+                                        <th class="col-sm-1"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>999888111</td>
+                                        <td>Claro</td>
+                                        <td>BCP</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class=" glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>999888112</td>
+                                        <td>Entel</td>
+                                        <td>BBVA</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>999888113</td>
+                                        <td>Movistar</td>
+                                        <td>BCP</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="address" ng-show="tab === 2">
+                            <div class="row">
+                                <br />
+                                <div class="col-md-1">
+                                    <a href="NewCustomerAddress.html" class="btn btn-info "><span class="glyphicon glyphicon-plus"></span> Nuevo</a>
+                                </div>
+                                <div class="col-md-5">
+                                    <select class="form-control">
+                                        <option>Ate</option>
+                                        <option>Breña</option>
+                                        <option>Jesús María</option>
+                                        <option>Lima</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> Buscar</button>
+                                </div>
+                            </div>
+                            <br />
+                            <table class="table-mngt table table-hover table-body-size">
+                                <thead>
+                                    <tr>
+                                        <th>Código</th>
+                                        <th>Origen</th>
+                                        <th>Dirección</th>
+                                        <th>Distrito</th>
+                                        <th class="col-sm-1"></th>
+                                        <th class="col-sm-1"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Campo</td>
+                                        <td>Jr.Los Rosales 234</td>
+                                        <td>San Isidro</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link  btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class=" glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Campo</td>
+                                        <td>Jr.Junín 234</td>
+                                        <td>Lima</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Campo</td>
+                                        <td>Garzón 344</td>
+                                        <td>Jesús María</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="accounts" ng-show="tab === 3">
+                            <div class="row">
+                                <br />
+                                <div class="col-md-1">
+                                    <a href="NewCustomerAccounts.html" class="btn btn-info "><span class="glyphicon glyphicon-plus"></span> Nuevo</a>
+                                </div>
+                                <div class="col-md-5">
+                                    <input class="form-control" type="text" id="formSearchAccount" placeholder="Buscar cuenta" />
+                                </div>
+                            </div>
+                            <br />
+                            <table class="table-mngt table table-hover table-body-size">
+                                <thead>
+                                    <tr>
+                                        <th>Cartera</th>
+                                        <th>Cuenta</th>
+                                        <th>Campaña</th>
+                                        <th>Deuda Total</th>
+                                        <th class="col-sm-1"></th>
+                                        <th class="col-sm-1"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>SAGA</td>
+                                        <td>SAGA</td>
+                                        <td>190.00</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link  btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class=" glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>BCP</td>
+                                        <td>BCP</td>
+                                        <td>490.00</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>SAGA</td>
+                                        <td>SAGA</td>
+                                        <td>690.00</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="paid" ng-show="tab === 4">
+                            <div class="row">
+                                <br />
+                                <div class="col-md-1">
+                                    <a href="NewCustomerPaid.html" class="btn btn-info "><span class="glyphicon glyphicon-plus"></span> Nuevo</a>
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control">
+                                        <option>2012</option>
+                                        <option>2013</option>
+                                        <option>2014</option>
+                                        <option>2015</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2">
+                                    <select class="form-control">
+                                        <option>Enero</option>
+                                        <option>Febrero</option>
+                                        <option>Marzo</option>
+                                        <option>Abril</option>
+                                        <option>Mayo</option>
+                                        <option>Junio</option>
+                                        <option>Julio</option>
+                                        <option>Agosto</option>
+                                        <option>Setiembre</option>
+                                        <option>Octubre</option>
+                                        <option>Noviembre</option>
+                                        <option>Diciembre</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+                                    <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-search"></span> Buscar</button>
+                                </div>
+                            </div>
+                            <br />
+                            <table class="table-mngt table table-hover table-body-size">
+                                <thead>
+                                    <tr>
+                                        <th>Nro.Operación</th>
+                                        <th>Fecha Pago</th>
+                                        <th>Cartera</th>
+                                        <th class="col-sm-1"></th>
+                                        <th class="col-sm-1"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>10/04/2016</td>
+                                        <td>1</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link  btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class=" glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>10/09/2016</td>
+                                        <td>1</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>15/10/2016</td>
+                                        <td>2</td>
+                                        <td><a href="EditPortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-pencil"></span> Editar</a></td>
+                                        <td><a href="DeletePortfolioCustomer.html" class="btn btn-link btn-xs"><span class="glyphicon glyphicon-remove"></span> Eliminar</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="paidschedule" ng-show="tab === 5">
+                            <table class="table-mngt table table-hover table-body-size">
+                                <thead>
+                                    <tr>
+                                        <th>Fecha de Pago</th>
+                                        <th>Monto Aportado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>01/05/2015</td>
+                                        <td>300.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>15/02/2016</td>
+                                        <td>450.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>20/05/2016</td>
+                                        <td>560.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

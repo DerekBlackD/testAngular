@@ -1,0 +1,44 @@
+﻿<div class="row">
+    <div class="col-md-2">
+        <h4>Gestión Teléfonica</h4>
+    </div>
+    <div class="col-md-4">
+        <input type="text" class="form-control" placeholder="Buscar clientes" />
+    </div>
+    <div class="col-md-2">
+        <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-chevron-left"></span> Anterior</a>
+    </div>
+    <div class="col-md-2">
+        <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-chevron-right"></span> Siguiente</a>
+    </div>
+    <div class="col-md-2">
+        <a href="#" class="btn btn-info"><span class="glyphicon glyphicon-cog"></span> Asignación</a>
+    </div>
+</div>
+<div class="row">
+    <!-- Info del Cliente -->
+    <div class="col-md-6">
+        <div ui-view="customerData"></div>
+    </div>
+    <!-- Telefonos del cliente -->
+    <div class="col-md-6">
+        <div ui-view="phoneData"></div>
+    </div>
+</div>
+<div class="row">
+    <!-- Cuentas del Cliente -->
+    <div class="col-md-12">
+        <div ui-view="accountData"></div>
+    </div>
+</div>
+<div class="row">
+    <!-- Gestiones del Cliente -->
+    <div class="col-md-6">
+        <div ui-view="managementData"></div>
+    </div>
+
+    <!-- Guardar Gestión-->
+    <div class="col-md-6">
+        <div ui-view="saveManagementData"></div>
+    </div>
+</div>

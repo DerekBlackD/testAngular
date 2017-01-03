@@ -1,0 +1,136 @@
+﻿[
+    {
+        "Id": "1",
+        "Nombre": "Cobranza",
+        "SubMenu": [
+            {
+                "Id": "11",
+                "Nombre": "Gestión Telefónica",
+                "Url": "ColPhoneMngt"
+            },
+            {
+                "Id": "12",
+                "Nombre": "Gestión de Campo",
+                "Url": "ColAddressMngt"
+            },
+            {
+                "Id": "13",
+                "Nombre": "Gestión Progresiva",
+                "Url": "ColProgressiveMngt"
+            },
+            {
+                "Id": "14",
+                "Nombre": "Análisis de Recaudación",
+                "Url": "ColCollectionAnalysis"
+            },
+            {
+                "Id": "15",
+                "Nombre": "Asignación de Cartera",
+                "Url": "ColAssignment"
+            }
+        ]
+    },
+    {
+        "Id": "2",
+        "Nombre": "Administración",
+        "SubMenu": [
+            {
+                "Id": "21",
+                "Nombre": "Mantenimiento de Clientes",
+                "Url": "ColMaintenanceCustomer"
+            },
+            {
+                "Id": "22",
+                "Nombre": "Mantenimiento de Cartera de Clientes",
+                "Url": "ColMaintenancePortfolioCustomer"
+            },
+            {
+                "Id": "23",
+                "Nombre": "Mantenimiento de Gestores",
+                "Url": "ColMaintenanceManager"
+            }
+        ]
+    },
+    {
+        "Id": "3",
+        "Nombre": "Consultas",
+        "SubMenu": [
+            {
+                "Id": "33",
+                "Nombre": "Consulta de Recaudación",
+                "Url": "ColQueryCollection"
+            },
+            {
+                "Id": "34",
+                "Nombre": "Consulta de Notificaciones",
+                "Url": "ColQueryNotificaciones"
+            },
+            {
+                "Id": "35",
+                "Nombre": "Reporte de Carteras",
+                "Url": "ColPortfolioReport"
+            }
+        ]
+    },
+    {
+        "Id": "4",
+        "Nombre": "Importaciones",
+        "SubMenu": [
+            {
+                "Id": "41",
+                "Nombre": "Carga Masiva",
+                "Url": "ColBulkUpload"
+            },
+            {
+                "Id": "42",
+                "Nombre": "Otras importaciones",
+                "Url": "ColBulkUpload"
+            }
+        ]
+    },
+    {
+        "Id": "5",
+        "Nombre": "Soporte",
+        "SubMenu": [
+            {
+                "Id": "51",
+                "Nombre": "Configuraciones",
+                "Url": "#",
+                "SubMenuTer": [
+                    {
+                        "Id": "511",
+                        "Nombre": "Configuración General",
+                        "Url": "ColGeneralConfig"
+                    },
+                    {
+                        "Id": "5112",
+                        "Nombre": "Resultados de Gestión",
+                        "Url": "ColResultsConfig"
+                    }
+                ]
+            },
+            {
+                "Id": "52",
+                "Nombre": "Buscadores",
+                "Url": "ColSearchers"
+            }
+        ]
+    },
+    {
+        "Id": "6",
+        "Nombre": "Seguridad",
+        "SubMenu": [
+            {
+                "Id": "61",
+                "Nombre": "Mantenimiento de Usuarios",
+                "Url": "ColSecurityUser"
+            },
+            {
+                "Id": "62",
+                "Nombre": "Mantenimiento de Opciones",
+                "Url": "ColSecurityOption"
+            }
+        ]
+    }
+]
+

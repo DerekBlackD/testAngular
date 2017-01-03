@@ -1,0 +1,81 @@
+﻿<div class="row">
+    <div class="container col-md-12">
+        <h4>Mantenimiento Clientes-Cartera</h4>
+    </div>
+</div>
+<div class="panel panel-info">
+    <div class="panel-heading"><span class="glyphicon glyphicon-user"></span> Datos del Cliente</div>
+    <div class="panel-body">
+        <form class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="formID">ID Cliente</label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="formID" placeholder="Ingrese ID del Cliente" />
+                </div>
+                <label class="col-sm-2 control-label" for="formName">Nombres y Apellidos</label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="formName" placeholder="Ingrese nombre del cliente" />
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="formTypeDoc">Tipo de Documento</label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="formTypeDoc">
+                        <option>DNI</option>
+                        <option>RUC</option>
+                        <option>LE</option>
+                        <option>Pasaporte</option>
+                        <option>Carnet Extranjeria</option>
+                    </select>
+                </div>
+                <label class="col-sm-2 control-label" for="formNumDoc">Número de Documento</label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="formNumDoc" placeholder="Ingrese número de documento">
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="formSex">Sexo</label>
+                <div class="col-sm-4">
+                    <label class="radio-inline">
+                        <input type="radio" name="options" id="opSexFemale" checked> Femenino
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="options" id="opSexMale"> Masculino
+                    </label>
+                </div>
+                <label class="col-sm-2 control-label" for="formCareer">Cargo</label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="formCareer">
+                        <option>Seleccionar</option>
+                        <option>Abogado</option>
+                        <option>Contador</option>
+                        <option>Ingeniero</option>
+                        <option>Operador</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label" for="formSalary">Sueldo</label>
+                <div class="col-sm-4">
+                    <input class="form-control" type="text" id="formSalary" placeholder="Ingrese sueldo" />
+                </div>
+                <label class="col-sm-2 control-label" form="formStatus">Estado del Cliente</label>
+                <div class="col-sm-4">
+                    <select class="form-control" id="formStatus">
+                        <option>Seleccionar</option>
+                        <option>Contactado</option>
+                        <option>No llamar</option>
+                        <option>Problemas con Indecopi</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group form-group-sm text-right">
+                <div class="col-sm-12">
+                    <button type="submit" class="btn btn-info"><span class="glyphicon glyphicon-floppy-disk"></span> Guardar</button>
+                    <button type="reset" class="btn btn-info"><span class="glyphicon glyphicon-refresh"></span> Limpiar</button>
+                    <a ng-click="indexPortfolioCustomer()" class="btn btn-info"><span class="glyphicon glyphicon-off"></span> Salir</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

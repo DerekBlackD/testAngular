@@ -1,0 +1,114 @@
+﻿<!DOCTYPE html>
+<html ng-app="Security">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Sistema de Gestión de Cobranza</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="Content/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="Content/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="Content/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="Content/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="Content/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="Content/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="Content/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="Content/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="Content/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="Content/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="Content/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="Content/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="Content/favicon/favicon-16x16.png">
+    <link rel="manifest" href="Content/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="Content/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="Content/css/Site.css" />
+    <link rel="stylesheet" href="Content/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="Content/css/menu-style.css" />
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#">
+                            <img src="Content/images/LOGO3-300x300.png" class="logo-brand" />
+                        </a>
+                    </div>
+
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+                        <ul class="nav navbar-nav">
+                            <li><a href="#" class="btn-lg"><strong>MC Recuperaciones</strong></a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="dropdown" ng-show="loadStates.userState">
+                                <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fulanita Gonzáles Arias <span class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Cambiar contraseña</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-alert"></span> Notificaciones <span class="badge">16</span></a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> Páginas de Interés</a></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-map-marker"></span> Centros de Atención</a></li>
+                                    <li class="divider"></li>
+                                    <li><a href="#"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
+                                </ul>
+                            </li>
+                            <li ng-show="loadStates.homeState"><a href="#/Cobranza/Home" data-toggle="tooltip" data-original-title="Principal" data-placement="bottom" title=""><span class="glyphicon glyphicon-home"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <!-- Header -->
+    <!-- Menu - Vertical -->
+    <div id="menuHor" class="menu" ng-controller="menuController" ng-show="loadStates.menuState">
+        <a class="btn-show"></a>
+        <a class="logo" href="#">
+            <div class="text-center">
+                <img src="Content/images/LOGO3-300x300.png" class="logo-business" />
+            </div>
+        </a>
+        <nav class="nav">
+            <ul id="ul_Menu" class="nav-wrap">
+                <li class="nav-01" ng-repeat="mn in menu">
+                    <span class="list-collapse">{{mn.Nombre}} <i class="ico-collapse"></i></span>
+                    <ul class="nav-collapse" ng-if="mn.SubMenu.length > 0">
+                        <li class="nav-02" ng-repeat="smn in mn.SubMenu">
+                            <a ng-if="smn.Url == '#'">{{smn.Nombre}}</a>
+                            <a ng-if="smn.Url != '#'" ui-sref="{{smn.Url}}">{{smn.Nombre}}</a>
+                            <ul class="nav-collapse-sub" ng-if="smn.SubMenuTer.length > 0">
+                                <li class="nav-03" ng-repeat="smt in smn.SubMenuTer">
+                                    <a ui-sref="{{smt.Url}}">{{smt.Nombre}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Menu - Vertical -->
+
+
+    <div class="container-fluid body-content">
+        <div ui-view></div>
+    </div>
+
+    <script src="Content/libraries/angular.min.js"></script>
+    <script src="Content/libraries/angular-ui-router.min.js"></script>
+    <script src="Scripts/Security-app.js"></script>
+    <script src="Scripts/Security-controller.js"></script>
+    <script src="Scripts/Security-service.js"></script>
+    <script src="Content/libraries/jquery-3.1.0.min.js"></script>
+    <script src="Content/libraries/bootstrap.min.js"></script>
+    <script src="Content/libraries/common.js"></script>
+</body>
+</html>

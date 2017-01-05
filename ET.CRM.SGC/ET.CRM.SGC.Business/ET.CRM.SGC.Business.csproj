@@ -43,6 +43,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ET.CRM.SGC.DataAccess\ET.CRM.SGC.DataAccess.csproj">
+      <Project>{11cf2c4d-80f3-4acc-8be7-469a72925e9d}</Project>
+      <Name>ET.CRM.SGC.DataAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ET.CRM.SGC.Entities\ET.CRM.SGC.Entities.csproj">
       <Project>{3e381bba-353c-48eb-afd7-9492c79bd11b}</Project>
       <Name>ET.CRM.SGC.Entities</Name>

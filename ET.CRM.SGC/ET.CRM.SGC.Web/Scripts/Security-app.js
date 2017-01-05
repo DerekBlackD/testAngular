@@ -24,8 +24,8 @@
             url: '/Cobranza/GestionTelefonica',
             views: {
                 '': { templateUrl: '/Views/Collection/PhoneManagement/IndexManagement.html' },
-                'customerData@ColPhoneMngt': { templateUrl: '/Views/Collection/PhoneManagement/CustomerData.html' },
-                'phoneData@ColPhoneMngt': { templateUrl: '/Views/Collection/PhoneManagement/CustPhoneData.html' },
+                'customerData@ColPhoneMngt': { templateUrl: '/Views/Collection/PhoneManagement/CustomerData.html', controller: 'customerController' },
+                'phoneData@ColPhoneMngt': { templateUrl: '/Views/Collection/PhoneManagement/CustPhoneData.html'},
                 'accountData@ColPhoneMngt': { templateUrl: '/Views/Collection/PhoneManagement/CustAccountData.html' },
                 'managementData@ColPhoneMngt': { templateUrl: '/Views/Collection/PhoneManagement/CustManagementData.html' },
                 'saveManagementData@ColPhoneMngt': { templateUrl: '/Views/Collection/PhoneManagement/SaveManagementData.html' }

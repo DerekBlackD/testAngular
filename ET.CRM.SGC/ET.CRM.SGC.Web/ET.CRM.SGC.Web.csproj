@@ -205,6 +205,7 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -230,9 +231,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
     <Folder Include="vistas\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ET.CRM.SGC.Entities\ET.CRM.SGC.Entities.csproj">
+      <Project>{3e381bba-353c-48eb-afd7-9492c79bd11b}</Project>
+      <Name>ET.CRM.SGC.Entities</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

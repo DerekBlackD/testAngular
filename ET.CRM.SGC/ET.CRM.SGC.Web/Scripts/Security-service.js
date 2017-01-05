@@ -5,7 +5,11 @@
         function all() {
             var deferred = $q.defer();
 
-            $http.get('/menuindex.json')
+            //$http.get('/menuindex.json')
+            //    .success(function (data) {
+            //        deferred.resolve(data);
+            //    });
+            $http.get('/api/Menu')
                 .success(function (data) {
                     deferred.resolve(data);
                 });

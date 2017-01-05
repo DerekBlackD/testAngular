@@ -234,6 +234,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ET.CRM.SGC.Business\ET.CRM.SGC.Business.csproj">
+      <Project>{dbd03538-da54-4fbd-b78c-83d985e5c7a4}</Project>
+      <Name>ET.CRM.SGC.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ET.CRM.SGC.Entities\ET.CRM.SGC.Entities.csproj">
       <Project>{3e381bba-353c-48eb-afd7-9492c79bd11b}</Project>
       <Name>ET.CRM.SGC.Entities</Name>

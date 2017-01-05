@@ -85,7 +85,7 @@
                             <a ng-if="smn.Url == '#'">{{smn.Name}}</a>
                             <a ng-if="smn.Url != '#'" ui-sref="{{smn.Url}}">{{smn.Name}}</a>
                             <ul class="nav-collapse-sub" ng-if="smn.SubMenuSon.length > 0">
-                                <li class="nav-03" ng-repeat="smt in smn.SubMenuTer">
+                                <li class="nav-03" ng-repeat="smt in smn.SubMenuSon">
                                     <a ui-sref="{{smt.Url}}">{{smt.Name}}</a>
                                 </li>
                             </ul>

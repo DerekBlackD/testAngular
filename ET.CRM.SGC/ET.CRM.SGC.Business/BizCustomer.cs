@@ -16,6 +16,7 @@ namespace ET.CRM.SGC.Business
         {
             Customer oCustomer = new Customer();
             oCustomer = oDACustomer.getCustomerDA(intIDCustomer);
+            oCustomer.Phones = oDACustomer.getCustomerPhoneDA(intIDCustomer);
             return oCustomer;
         }
     }

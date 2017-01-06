@@ -3012,7 +3012,7 @@ input[type="search"] {
 }
 
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 5px; /* MOD 1 - Junior Peña*/
 }
 
 .radio, .checkbox {
@@ -3098,14 +3098,14 @@ textarea.input-sm, select[multiple].input-sm {
 
 .form-group-sm .form-control {
     height: 30px;
-    padding: 5px 10px;
+    padding: 0px 2px; /* MOD 1 - Junior Peña */
     font-size: 12px;
     line-height: 1.5;
     border-radius: 3px;
 }
 
 .form-group-sm select.form-control {
-    height: 30px;
+    height: 20px;
     line-height: 30px;
 }
 
@@ -3381,7 +3381,7 @@ textarea.input-lg, select[multiple].input-lg {
 
 @media (min-width:768px) {
     .form-horizontal .form-group-sm .control-label {
-        padding-top: 6px;
+        padding-top: 0px; /* MOD 1 - Junior Peña */
         font-size: 12px;
     }
 }

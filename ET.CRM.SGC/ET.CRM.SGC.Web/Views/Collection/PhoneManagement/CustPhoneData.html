@@ -13,21 +13,21 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Nuevo</a></li>
-                    <li><a href="#"><span class="glyphicon glyphicon-plus"></span> Editar</a></li>
+                    <li ng-show="StateFormPhone"><a href="#" ng-click="newCustomerPhone()"><span class="glyphicon glyphicon-plus"></span> Nuevo</a></li>
+                    <li ng-hide="StateFormPhone"><a href="#" ng-click="saveCustomerPhone()"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</a></li>
+                    <li ng-hide="StateFormPhone"><a href="#" ng-click="cancelCustomerPhone()"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</a></li>
                 </ul>
             </div>
         </div>
     </div>
 
-    <div class="mngt-scrolls">
+    <div class="mngt-scrolls" ng-show="StateFormPhone">
         <table class="table-mngt table table-hover table-body-size">
             <thead>
                 <tr>
                     <th></th>
                     <th>Teléfono</th>
                     <th>Prio</th>
-                    <th>Resultado</th>
                     <th>Proveedor</th>
                     <th>Anexo</th>
                     <th>Origen</th>
@@ -35,237 +35,58 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="success">
-                    <td><a href="#"><span class="glyphicon glyphicon-pencil"></span></a></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr class="success">
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr class="warning">
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr class="warning">
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr class="warning">
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr class="danger">
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr class="danger">
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
-                    <td></td>
-                </tr>
-                <tr class="danger">
-                    <td><span class="glyphicon glyphicon-pencil"></span></td>
-                    <td><a href="sip:999888111">999888111</a></td>
-                    <td>1</td>
-                    <td>Efectivo</td>
-                    <td>Claro</td>
-                    <td>0</td>
-                    <td>BCP</td>
+                <tr class="success" ng-repeat="phone in customerData.Phones">
+                    <td><a href="#" ng-click="editCustomerPhone()"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a href="sip:{{phone.PhoneNumber}}">{{phone.PhoneNumber}}</a></td>
+                    <td>{{phone.Priority}}</td>
+                    <td>{{phone.ProviderName}}</td>
+                    <td>{{phone.Annexed}}</td>
+                    <td>{{phone.OriginName}}</td>
                     <td></td>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <div class="panel-body mngt-scrolls" ng-hide="StateFormPhone">
+        <form class="form-horizontal">
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label">Proveedor</label>
+                <div class="col-sm-2">
+                    <select class="form-control">
+                        <option>Movistar</option>
+                        <option>Entel</option>
+                        <option>Claro</option>
+                        <option>Bitel</option>
+                    </select>
+                </div>
+                <label class="col-sm-2 control-label">Teléfono</label>
+                <div class="col-sm-2">
+                    <label class="control-label" id="inputTlfnDir">999888111</label>
+                </div>
+                <label class="col-sm-2 control-label">Fecha</label>
+                <div class="col-sm-2">
+                    <label class="control-label" id="inputFecha">06/01/2017</label>
+                </div>
+            </div>
+            <div class="form-group form-group-sm">
+                <label class="col-sm-2 control-label">Origen</label>
+                <div class="col-sm-2">
+                    <select class="form-control">
+                        <option>Base_Movistar</option>
+                        <option>ESSalud</option>
+                        <option>Equifax</option>
+                        <option>Claro2016</option>
+                    </select>
+                </div>
+                <label class="col-sm-2 control-label">Estado</label>
+                <div class="col-sm-2">
+                    <select class="form-control">
+                        <option>Activo</option>
+                        <option>Inactivo</option>
+                    </select>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

@@ -76,3 +76,8 @@ is the default in type.less */
 .table-body-size{
     min-width:600px;
 }
+
+/* Estilos varios */
+.btn-without-ref{
+    cursor:pointer;
+}

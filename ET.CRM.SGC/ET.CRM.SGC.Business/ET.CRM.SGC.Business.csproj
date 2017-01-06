@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BizCustomer.cs" />
+    <Compile Include="BizGeneral.cs" />
     <Compile Include="BizMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

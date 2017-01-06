@@ -13,9 +13,9 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-3">
                 <ul class="nav navbar-nav navbar-right">
-                    <li ng-show="StateFormPhone"><a href="#" ng-click="newCustomerPhone()"><span class="glyphicon glyphicon-plus"></span> Nuevo</a></li>
-                    <li ng-hide="StateFormPhone"><a href="#" ng-click="saveCustomerPhone()"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</a></li>
-                    <li ng-hide="StateFormPhone"><a href="#" ng-click="cancelCustomerPhone()"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</a></li>
+                    <li ng-show="StateFormPhone"><a class="btn-without-ref" ng-click="newCustomerPhone()"><span class="glyphicon glyphicon-plus"></span> Nuevo</a></li>
+                    <li ng-hide="StateFormPhone"><a class="btn-without-ref" ng-click="saveCustomerPhone()"><span class="glyphicon glyphicon-floppy-saved"></span> Guardar</a></li>
+                    <li ng-hide="StateFormPhone"><a class="btn-without-ref" ng-click="cancelCustomerPhone()"><span class="glyphicon glyphicon-floppy-remove"></span> Cancelar</a></li>
                 </ul>
             </div>
         </div>
@@ -36,7 +36,7 @@
             </thead>
             <tbody>
                 <tr class="success" ng-repeat="phone in customerData.Phones">
-                    <td><a href="#" ng-click="editCustomerPhone()"><span class="glyphicon glyphicon-pencil"></span></a></td>
+                    <td><a class="btn-without-ref" ng-click="editCustomerPhone()"><span class="glyphicon glyphicon-pencil"></span></a></td>
                     <td><a href="sip:{{phone.PhoneNumber}}">{{phone.PhoneNumber}}</a></td>
                     <td>{{phone.Priority}}</td>
                     <td>{{phone.ProviderName}}</td>
@@ -54,10 +54,7 @@
                 <label class="col-sm-2 control-label">Proveedor</label>
                 <div class="col-sm-2">
                     <select class="form-control">
-                        <option>Movistar</option>
-                        <option>Entel</option>
-                        <option>Claro</option>
-                        <option>Bitel</option>
+                        <option ng-repeat="pp in ProviderPhone" value="{{pp.Code}}">{{pp.Description}}</option>
                     </select>
                 </div>
                 <label class="col-sm-2 control-label">Teléfono</label>
@@ -73,10 +70,7 @@
                 <label class="col-sm-2 control-label">Origen</label>
                 <div class="col-sm-2">
                     <select class="form-control">
-                        <option>Base_Movistar</option>
-                        <option>ESSalud</option>
-                        <option>Equifax</option>
-                        <option>Claro2016</option>
+                        <option ng-repeat="op in OriginPhone" value="{{op.Code}}">{{op.Description}}</option>
                     </select>
                 </div>
                 <label class="col-sm-2 control-label">Estado</label>

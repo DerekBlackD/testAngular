@@ -3097,7 +3097,7 @@ textarea.input-sm, select[multiple].input-sm {
 }
 
 .form-group-sm .form-control {
-    height: 30px;
+    height: 20px; /* MOD 1 - Junior Peña */
     padding: 0px 2px; /* MOD 1 - Junior Peña */
     font-size: 12px;
     line-height: 1.5;

@@ -4,10 +4,6 @@
     .factory('menuService', ['$http', '$q', function ($http, $q) {
         function all() {
             var deferred = $q.defer();
-            //$http.get('/menuindex.json')
-            //    .success(function (data) {
-            //        deferred.resolve(data);
-            //    });
             $http.get('/api/Menu')
                 .success(function (data) {
                     deferred.resolve(data);

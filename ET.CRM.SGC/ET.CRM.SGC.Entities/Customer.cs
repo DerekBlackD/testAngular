@@ -23,14 +23,21 @@ namespace ET.CRM.SGC.Entities
 
     public class CustomerPhone
     {
+        public int BusinnesID { get; set; }
+        public int CustomerID { get; set; }
         public int ID { get; set; }
         public String PhoneNumber { get; set; }
+        public String PhoneCode { get; set; }
         public String Annexed { get; set; }
+        public String Class { get; set; }
+        public String ClassName { get; set; }
         public String Origin { get; set; }
         public String OriginName { get; set; }
         public String Provider { get; set; }
         public String ProviderName { get; set; }
         public int Priority { get; set; }
+        public int SubPriority { get; set; }
+        public String Observation { get; set; }
         public String State { get; set; }
     }
 

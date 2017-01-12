@@ -42,6 +42,7 @@
     <Compile Include="BizCustomer.cs" />
     <Compile Include="BizGeneral.cs" />
     <Compile Include="BizMenu.cs" />
+    <Compile Include="BizUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

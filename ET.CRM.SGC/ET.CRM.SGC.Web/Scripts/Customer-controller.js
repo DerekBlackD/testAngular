@@ -6,9 +6,17 @@
         $scope.editData = {};
         $scope.customerData = {};
         $scope.customerData.Phones = {};
+        //Initial Load methods
+        customerService.getAllCustomerPhone().then(function (data) {
+            $scope.customerData.Phones = data;
+        });
+        //End Load methods
+
+        //Start Events
         $scope.newCustomerPhone = function () {
             $scope.StateFormPhone = false;
             $scope.FormType = 2;
+            $scope.editData = {}
         };
         $scope.editCustomerPhone = function (PhoneID) {
             $scope.StateFormPhone = false;
@@ -36,15 +44,16 @@
             $scope.FormType = 1;
             $scope.StateFormPhone = true;
         };
+        //End Events
         
+        //Start Personal functions
         $scope.loadCustomerPhone = function () {
             customerService.getAllCustomerPhone().then(function (data) {
                 $scope.customerData.Phones = data;
             });
         };
-        //customerService.getAllCustomerPhone().then(function (data) {
-        //    $scope.customerData.Phones = data;
-        //});
+        //End Personal functions
+        
         //Start - Load Select Objects
         generalConfigService.getGeneralSelect('1', '1').then(function (data) {
             $scope.ProviderPhone = data;
@@ -57,7 +66,6 @@
     .controller('customerController', ['$scope', '$state', 'customerService', function ($scope, $state, customerService ) {
         customerService.getCustomer().then(function (data) {
             $scope.customerData = data;
-            //customerPhoneController.loadCustomerPhone();
         });
     }])
     .factory('customerService', ['$http', '$q', function ($http, $q) {

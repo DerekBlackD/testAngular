@@ -1,7 +1,7 @@
 ﻿using Microsoft.Owin;
 using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.DataHandler.Encoder;
-//using Microsoft.Owin.Security.Jwt;
+using Microsoft.Owin.Security.Jwt;
 using Microsoft.Owin.Security.OAuth;
 using Newtonsoft.Json.Serialization;
 using Owin;
@@ -12,7 +12,6 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
-using ET.CRM.SGC.Web.Auth.Infrastructure;
 using ET.CRM.SGC.Web.Auth.Provider;
 
 namespace ET.CRM.SGC.Web
@@ -27,7 +26,7 @@ namespace ET.CRM.SGC.Web
 
             ConfigureOAuthTokenGeneration(app);
 
-            //ConfigureOAuthTokenConsumption(app);
+            ConfigureOAuthTokenConsumption(app);
 
             //ConfigureWebApi(httpConfig);
 
@@ -50,33 +49,34 @@ namespace ET.CRM.SGC.Web
                 AllowInsecureHttp = true,
                 TokenEndpointPath = new PathString("/oauth/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
-                Provider = new CustomOAuthProvider()
-                //AccessTokenFormat = new CustomJwtFormat("http://localhost:9580")
+                Provider = new CustomOAuthProvider(),
+                AccessTokenFormat = new CustomJwtFormat("http://localhost:9580")
             };
 
             // OAuth 2.0 Bearer Access Token Generation
             app.UseOAuthAuthorizationServer(OAuthServerOptions);
         }
 
-        //private void ConfigureOAuthTokenConsumption(IAppBuilder app)
-        //{
+        private void ConfigureOAuthTokenConsumption(IAppBuilder app)
+        {
 
-        //    var issuer = "http://localhost:59822";
-        //    string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
-        //    byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
+            var issuer = "http://localhost:9580";
+            //string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
+            //byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
+            var secret =  = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
 
-        //    // Api controllers with an [Authorize] attribute will be validated with JWT
-        //    app.UseJwtBearerAuthentication(
-        //        new JwtBearerAuthenticationOptions
-        //        {
-        //            AuthenticationMode = AuthenticationMode.Active,
-        //            AllowedAudiences = new[] { audienceId },
-        //            IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
-        //            {
-        //                new SymmetricKeyIssuerSecurityTokenProvider(issuer, audienceSecret)
-        //            }
-        //        });
-        //}
+            // Api controllers with an [Authorize] attribute will be validated with JWT
+            app.UseJwtBearerAuthentication(
+                new JwtBearerAuthenticationOptions
+                {
+                    AuthenticationMode = AuthenticationMode.Active,
+                    AllowedAudiences = new[] { "Any" },
+                    IssuerSecurityTokenProviders = new IIssuerSecurityTokenProvider[]
+                    {
+                        new SymmetricKeyIssuerSecurityTokenProvider(issuer, secret)
+                    }
+                });
+        }
 
         private void ConfigureWebApi(HttpConfiguration config)
         {

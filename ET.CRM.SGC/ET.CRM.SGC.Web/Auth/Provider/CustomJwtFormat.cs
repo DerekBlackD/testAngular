@@ -14,6 +14,8 @@ namespace ET.CRM.SGC.Web.Auth.Provider
     {
         private readonly string _issuer = string.Empty;
 
+        private static readonly byte[] _secret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
+
         public CustomJwtFormat(string issuer)
         {
             _issuer = issuer;
@@ -26,19 +28,20 @@ namespace ET.CRM.SGC.Web.Auth.Provider
                 throw new ArgumentNullException("data");
             }
 
-            string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
+            //string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
 
-            string symmetricKeyAsBase64 = ConfigurationManager.AppSettings["as:AudienceSecret"];
+            //string symmetricKeyAsBase64 = ConfigurationManager.AppSettings["as:AudienceSecret"];
 
-            var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
+            //var keyByteArray = TextEncodings.Base64Url.Decode(symmetricKeyAsBase64);
 
-            var signingKey = new HmacSigningCredentials(keyByteArray);
+            //var signingKey = new HmacSigningCredentials(keyByteArray);
+            var signingKey = new HmacSigningCredentials(_secret);
 
             var issued = data.Properties.IssuedUtc;
 
             var expires = data.Properties.ExpiresUtc;
 
-            var token = new JwtSecurityToken(_issuer, audienceId, data.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, signingKey);
+            var token = new JwtSecurityToken(_issuer, null, data.Identity.Claims, issued.Value.UtcDateTime, expires.Value.UtcDateTime, signingKey);
 
             var handler = new JwtSecurityTokenHandler();
 

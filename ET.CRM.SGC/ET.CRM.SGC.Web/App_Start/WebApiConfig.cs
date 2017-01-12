@@ -10,6 +10,7 @@ namespace ET.CRM.SGC.Web
     {
         public static void Register(HttpConfiguration config)
         {
+
             // Configuración y servicios de API web
             config.Formatters.JsonFormatter.SupportedMediaTypes.Add(new MediaTypeHeaderValue("text/html"));
 
@@ -22,5 +23,8 @@ namespace ET.CRM.SGC.Web
                 defaults: new { id = RouteParameter.Optional }
             );
         }
+
+
     }
+
 }

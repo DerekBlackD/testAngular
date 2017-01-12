@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{11CF2C4D-80F3-4ACC-8BE7-469A72925E9D}</ProjectGuid>
+    <ProjectGuid>{67AFACAC-5D9A-4335-9DFF-72AD92F54BE1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ET.CRM.SGC.DataAccess</RootNamespace>
-    <AssemblyName>ET.CRM.SGC.DataAccess</AssemblyName>
+    <RootNamespace>ET.CRM.SGC.Utilities</RootNamespace>
+    <AssemblyName>ET.CRM.SGC.Utilities</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -39,17 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DtaCustomer.cs" />
-    <Compile Include="DtaGeneral.cs" />
-    <Compile Include="DtaMenu.cs" />
-    <Compile Include="DtaUser.cs" />
+    <Compile Include="SecurityTools.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ET.CRM.SGC.Entities\ET.CRM.SGC.Entities.csproj">
-      <Project>{3e381bba-353c-48eb-afd7-9492c79bd11b}</Project>
-      <Name>ET.CRM.SGC.Entities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -60,6 +60,9 @@
     <Reference Include="Microsoft.Owin.Security.Cookies">
       <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Owin.Security.Jwt">
+      <HintPath>..\packages\Microsoft.Owin.Security.Jwt.3.0.0\lib\net45\Microsoft.Owin.Security.Jwt.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Owin.Security.OAuth">
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
@@ -173,7 +176,6 @@
     <Content Include="Content\libraries\bootstrap.min.js" />
     <Content Include="Content\libraries\common.js" />
     <Content Include="Content\libraries\jquery-3.1.0.min.js" />
-    <Content Include="Global.asax" />
     <Content Include="Content\libraries\angular-mocks.js" />
     <Content Include="Content\libraries\angular-route.js" />
     <Content Include="Content\libraries\angular-route.min.js" />
@@ -248,15 +250,11 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Auth\Infrastructure\ApplicationUser.cs" />
     <Compile Include="Auth\Provider\CustomJwtFormat.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\CustomerPhoneController.cs" />
     <Compile Include="Controllers\GeneralSelectController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Auth\Provider\CustomOAuthProvider.cs" />
     <Compile Include="Startup.cs" />
@@ -291,6 +289,10 @@
     <ProjectReference Include="..\ET.CRM.SGC.Entities\ET.CRM.SGC.Entities.csproj">
       <Project>{3e381bba-353c-48eb-afd7-9492c79bd11b}</Project>
       <Name>ET.CRM.SGC.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ET.CRM.SGC.Utilities\ET.CRM.SGC.Utilities.csproj">
+      <Project>{67afacac-5d9a-4335-9dff-72ad92f54be1}</Project>
+      <Name>ET.CRM.SGC.Utilities</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

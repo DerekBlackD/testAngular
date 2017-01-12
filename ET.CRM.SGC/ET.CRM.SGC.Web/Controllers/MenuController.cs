@@ -13,6 +13,7 @@ namespace ET.CRM.SGC.Web.Controllers
     {
      
         //GET api/Menu
+        [Authorize]
         public IEnumerable<Menu> getMenu()
         {
             BizMenu oBizMenu = new BizMenu();

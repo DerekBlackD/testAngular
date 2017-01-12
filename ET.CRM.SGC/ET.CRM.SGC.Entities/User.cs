@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ET.CRM.SGC.Entities
 {
-    class User
+    public class User
     {
         public int ID { get; set; }
         public String UserName { get; set; }

@@ -1,12 +1,17 @@
 ﻿(function () {
-    var app = angular.module('Security', ['ui.router']);
+    var app = angular.module('Security', ['ui.router', 'satellizer']);
 
     app.run(['$rootScope', function ($rootScope) {
         $rootScope.loadStates = {menuState : false, userState: false, homeState: false};
     }]);
 
-    app.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+    app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function ($stateProvider, $urlRouterProvider, $authProvider) {
         //$locationProvider.hashPrefix('!').html5Mode(true);
+
+        $authProvider.loginUrl = "http://localhost:9580/oauth/token";
+        //$authProvider.signupUrl = "http://api.com/auth/signup";
+        $authProvider.tokenName = "token";
+        $authProvider.tokenPrefix = "myApp";
 
         $urlRouterProvider.otherwise('/Home');
 

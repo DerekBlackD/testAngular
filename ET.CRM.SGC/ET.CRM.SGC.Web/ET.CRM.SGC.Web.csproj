@@ -179,6 +179,7 @@
     <Content Include="Content\libraries\angular-mocks.js" />
     <Content Include="Content\libraries\angular-route.js" />
     <Content Include="Content\libraries\angular-route.min.js" />
+    <Content Include="Content\libraries\satellizer.js" />
     <Content Include="Content\libraries\ui-bootstrap.js" />
     <Content Include="Content\libraries\ui-bootstrap.min.js" />
     <Content Include="Content\libraries\angular.js" />

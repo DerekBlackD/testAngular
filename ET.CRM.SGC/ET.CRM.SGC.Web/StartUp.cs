@@ -63,7 +63,7 @@ namespace ET.CRM.SGC.Web
             var issuer = "http://localhost:9580";
             //string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
             //byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
-            var secret =  = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
+            var secret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
 
             // Api controllers with an [Authorize] attribute will be validated with JWT
             app.UseJwtBearerAuthentication(

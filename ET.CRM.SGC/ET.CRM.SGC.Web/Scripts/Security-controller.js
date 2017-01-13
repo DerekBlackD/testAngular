@@ -1,13 +1,24 @@
 ﻿(function () {
     'use strict';
     angular.module('Security')
-    .controller('loginController', ['$rootScope', '$scope', '$state', function ($rootScope, $scope, $state) {
+    .controller('loginController', ['$rootScope', '$scope', '$state', '$auth', function ($rootScope, $scope, $state, $auth) {
         $scope.login = function () {
             $rootScope.loadStates.menuState = true;
             $rootScope.loadStates.userState = true;
             $rootScope.loadStates.homeState = true;
-            //$location.path('/Cobranza/Inicio');
-            $state.go("Collection");
+            
+            $auth.login({
+                grant_type: "password",
+                username: $scope.UserName,
+                password: $scope.Password
+            })
+            .then(function () {
+                $state.go("Collection");
+            })
+            .catch(function (response) {
+                console.log("Error de autenticación");
+            });
+
         };
     }])
     .controller('menuController', ['$scope', 'menuService', function ($scope, menuService) {

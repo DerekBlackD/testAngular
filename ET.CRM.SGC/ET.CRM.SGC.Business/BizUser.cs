@@ -11,10 +11,17 @@ namespace ET.CRM.SGC.Business
     public class BizUser
     {
         DtaUser oDtaUser = new DtaUser();
-        public int ValidateLogin(String UserName, String Password){
-            int statusLogin;
-            statusLogin = oDtaUser.ValidateLogin(UserName, Password);
-            return statusLogin;
+        public User ValidateLogin(String UserName, String Password){
+            User oUser = new User();
+            oUser = oDtaUser.ValidateLogin(UserName, Password);
+            return oUser;
+        }
+
+        public User getUserByID(int BusinessID, int UserID)
+        {
+            User oUser = new User();
+            oUser = oDtaUser.getUserByID(BusinessID, UserID);
+            return oUser;
         }
     }
 }

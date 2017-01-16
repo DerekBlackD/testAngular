@@ -10,10 +10,10 @@ namespace ET.CRM.SGC.DataAccess
     public class DtaUser
     {
         private static List<User> lstUser = new List<User> { 
-        new User{ ID = 1, UserName="jpena", Name = "Junior", LastName="Peña", Email="juniorp@eratec.com", Password="977bad728c0477bde9231b3f65d7f965d5cc20a22c20a71fba94cb1532959bdf"},
-        new User{ ID= 2, UserName= "asoto", Name= "Alejandra", LastName="Soto", Email="asoto@eratec.com", Password="942678ce85a4b1a4e11658f77e61b022a178acb6319abc7d359bb54e89ae66bb"}};
+        new User{ BusinessID = 1, ID = 1, UserName="jpena", FullName = "Junior Peña", Email="juniorp@eratec.com", Password="977bad728c0477bde9231b3f65d7f965d5cc20a22c20a71fba94cb1532959bdf", NumberOfNotifications = 12, State = 1},
+        new User{ BusinessID = 1, ID = 2, UserName= "asoto", FullName= "Alejandra Soto", Email="asoto@eratec.com", Password="942678ce85a4b1a4e11658f77e61b022a178acb6319abc7d359bb54e89ae66bb", NumberOfNotifications = 4, State = 1}};
 
-        public int ValidateLogin(String UserName, String Password)
+        public User ValidateLogin(String UserName, String Password)
         {
             /* clave: eratec - varchar(64)
              * hex: 977bad728c0477bde9231b3f65d7f965d5cc20a22c20a71fba94cb1532959bdf
@@ -31,8 +31,26 @@ namespace ET.CRM.SGC.DataAccess
             //1 - OK
             //2 - The user has expired
 
+            User oUser = new User();
             int Resul = lstUser.Where(x => x.UserName == UserName && x.Password == Password).ToList().Count;
-            return Resul;
+            if (Resul > 0)
+            {
+                oUser.BusinessID = lstUser.Where(x => x.UserName == UserName && x.Password == Password).First().BusinessID;
+                oUser.ID = lstUser.Where(x => x.UserName == UserName && x.Password == Password).First().ID;
+                oUser.State = lstUser.Where(x => x.UserName == UserName && x.Password == Password).First().State;
+            }
+            else
+            {
+                oUser.State = 0;
+            }
+            return oUser;
+        }
+
+        public User getUserByID(int BusinessID, int UserID)
+        {
+            User oUser = new User();
+            oUser = lstUser.Where(x => x.BusinessID == BusinessID && x.ID == UserID).First();
+            return oUser;
         }
     }
 

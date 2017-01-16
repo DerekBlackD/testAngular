@@ -19,8 +19,8 @@ namespace ET.CRM.SGC.Web
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
-                defaults: new { id = RouteParameter.Optional }
+                routeTemplate: "api/{controller}/{BusinessID}/{ID}",
+                defaults: new { BusinessID = RouteParameter.Optional, ID = RouteParameter.Optional }
             );
         }
 

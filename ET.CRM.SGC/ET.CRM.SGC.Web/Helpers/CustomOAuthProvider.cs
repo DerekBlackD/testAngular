@@ -1,6 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.Owin;
-using Microsoft.Owin.Security;
+﻿using Microsoft.Owin.Security;
 using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
@@ -12,7 +10,7 @@ using System.Web;
 using ET.CRM.SGC.Business;
 using ET.CRM.SGC.Entities;
 
-namespace ET.CRM.SGC.Web.Auth.Provider
+namespace ET.CRM.SGC.Web.Helpers
 {
     public class CustomOAuthProvider : OAuthAuthorizationServerProvider
     {
@@ -29,44 +27,37 @@ namespace ET.CRM.SGC.Web.Auth.Provider
 
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { allowedOrigin });
 
-            //var userManager = context.OwinContext.GetUserManager<ApplicationUserManager>();
-
-            //ApplicationUser user = await userManager.FindAsync(context.UserName, context.Password);
-
+            User oUser = new User();
             BizUser oBizUser = new BizUser();
             String EncodePassword = ET.CRM.SGC.Utilities.SecurityTools.EncryptPassword(context.Password);
-            int intResul = oBizUser.ValidateLogin(context.UserName, EncodePassword);
+            oUser = oBizUser.ValidateLogin(context.UserName, EncodePassword);
 
-            if (intResul == 0)
+            if (oUser.State == 0)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");
                 context.Rejected();
                 return Task.FromResult<object>(null);
             }
 
-            //if (!user.EmailConfirmed)
-            //{
-            //    context.SetError("invalid_grant", "User did not confirm email.");
-            //    return;
-            //}
+            if (oUser.State == 2)
+            {
+                context.SetError("invalid_grant", "The user has expired.");
+                context.Rejected();
+                return Task.FromResult<object>(null);
+            }
 
-            //ClaimsIdentity oAuthIdentity = await GenerateUserIdentityAsync(userManager, "JWT");
-
-            //var identity = new ClaimsIdentity(context.Options.AuthenticationType);
-            //identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-            //identity.AddClaim(new Claim(ClaimTypes.Role, "admin"));
-            //context.Validated(identity);
-
-            var ticket = new AuthenticationTicket(SetClaimsIdentity(context), new AuthenticationProperties());
+            var ticket = new AuthenticationTicket(SetClaimsIdentity(context, oUser), new AuthenticationProperties());
 
             context.Validated(ticket);
+
             return Task.FromResult<object>(null);
         }
-        private static ClaimsIdentity SetClaimsIdentity(OAuthGrantResourceOwnerCredentialsContext context)
+        private static ClaimsIdentity SetClaimsIdentity(OAuthGrantResourceOwnerCredentialsContext context, User oUser)
         {
             var identity = new ClaimsIdentity("JWT");
             identity.AddClaim(new Claim(ClaimTypes.Name, context.UserName));
-            identity.AddClaim(new Claim("sub", context.UserName));
+            identity.AddClaim(new Claim("BusinessID", oUser.BusinessID.ToString()));
+            identity.AddClaim(new Claim("ID", oUser.ID.ToString()));
             identity.AddClaim(new Claim(ClaimTypes.Role, "admin"));
 
             //var userRoles = context.OwinContext.Get<BookUserManager>().GetRoles(user.Id);

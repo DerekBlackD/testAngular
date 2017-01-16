@@ -423,7 +423,8 @@
         Shared.prototype.setToken = function (response) {
             var tokenRoot = this.SatellizerConfig.tokenRoot;
             var tokenName = this.SatellizerConfig.tokenName;
-            var accessToken = response && response.access_token;
+            //var accessToken = response && response.access_token;
+            var accessToken = response && response.data.access_token;
             var token;
             if (accessToken) {
                 if (angular.isObject(accessToken) && angular.isObject(accessToken.data)) {
@@ -485,7 +486,8 @@
             var _this = this;
             if (options === void 0) { options = {}; }
             options.url = options.url ? options.url : joinUrl(this.SatellizerConfig.baseUrl, this.SatellizerConfig.loginUrl);
-            options.data = user || options.data;
+            //options.data = user || options.data;
+            options.data = "username=" + user.username + "&password=" + user.password + "&grant_type=password";
             options.method = options.method || 'POST';
             options.withCredentials = options.withCredentials || this.SatellizerConfig.withCredentials;
             return this.$http(options).then(function (response) {

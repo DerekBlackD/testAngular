@@ -8,12 +8,21 @@
     app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function ($stateProvider, $urlRouterProvider, $authProvider) {
         //$locationProvider.hashPrefix('!').html5Mode(true);
 
-        $authProvider.loginUrl = "http://localhost:9580/oauth/token";
-        //$authProvider.signupUrl = "http://api.com/auth/signup";
+        $authProvider.loginUrl = "/oauth/token";
         $authProvider.tokenName = "token";
         $authProvider.tokenPrefix = "myApp";
 
         $urlRouterProvider.otherwise('/Home');
+
+        var loginRequired = ['$q', '$state', '$auth', function($q, $state, $auth) {
+            var deferred = $q.defer();
+            if ($auth.isAuthenticated()) {
+                deferred.resolve();
+            } else {
+                $state.go('Home');
+            }
+            return deferred.promise;
+        }];
 
         $stateProvider
         .state('Home', {
@@ -23,7 +32,10 @@
         })
         .state('Collection', {
             url: '/Cobranza/Inicio',
-            templateUrl: '/Views/Collection/Home.html'
+            templateUrl: '/Views/Collection/Home.html',
+            resolve: {
+                loginRequired: loginRequired
+            }
         })
         .state('ColPhoneMngt', {
             url: '/Cobranza/GestionTelefonica',

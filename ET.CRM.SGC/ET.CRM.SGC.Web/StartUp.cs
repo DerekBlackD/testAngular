@@ -12,7 +12,7 @@ using System.Linq;
 using System.Net.Http.Formatting;
 using System.Web;
 using System.Web.Http;
-using ET.CRM.SGC.Web.Auth.Provider;
+using ET.CRM.SGC.Web.Helpers;
 
 namespace ET.CRM.SGC.Web
 {
@@ -28,8 +28,6 @@ namespace ET.CRM.SGC.Web
 
             ConfigureOAuthTokenConsumption(app);
 
-            //ConfigureWebApi(httpConfig);
-
             app.UseCors(Microsoft.Owin.Cors.CorsOptions.AllowAll);
 
             app.UseWebApi(httpConfig);
@@ -38,10 +36,6 @@ namespace ET.CRM.SGC.Web
 
         private void ConfigureOAuthTokenGeneration(IAppBuilder app)
         {
-            // Configure the db context and user manager to use a single instance per request
-            //app.CreatePerOwinContext(ApplicationDbContext.Create);
-            //app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
-            //app.CreatePerOwinContext<ApplicationRoleManager>(ApplicationRoleManager.Create);
 
             OAuthAuthorizationServerOptions OAuthServerOptions = new OAuthAuthorizationServerOptions()
             {
@@ -50,7 +44,7 @@ namespace ET.CRM.SGC.Web
                 TokenEndpointPath = new PathString("/oauth/token"),
                 AccessTokenExpireTimeSpan = TimeSpan.FromDays(1),
                 Provider = new CustomOAuthProvider(),
-                AccessTokenFormat = new CustomJwtFormat("http://localhost:9580")
+                AccessTokenFormat = new CustomJwtFormat(ConfigurationManager.AppSettings["strDeployUrl"])
             };
 
             // OAuth 2.0 Bearer Access Token Generation
@@ -60,7 +54,7 @@ namespace ET.CRM.SGC.Web
         private void ConfigureOAuthTokenConsumption(IAppBuilder app)
         {
 
-            var issuer = "http://localhost:9580";
+            var issuer = ConfigurationManager.AppSettings["strDeployUrl"];
             //string audienceId = ConfigurationManager.AppSettings["as:AudienceId"];
             //byte[] audienceSecret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);
             var secret = TextEncodings.Base64Url.Decode(ConfigurationManager.AppSettings["as:AudienceSecret"]);

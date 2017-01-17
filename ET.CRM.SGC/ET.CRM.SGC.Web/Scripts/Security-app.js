@@ -1,5 +1,5 @@
 ﻿(function () {
-    var app = angular.module('Security', ['ui.router', 'satellizer']);
+    var app = angular.module('Security', ['ui.router', 'ui.bootstrap', 'satellizer']);
 
     app.run(['$rootScope', function ($rootScope) {
         $rootScope.loadStates = {menuState : false, userState: false, homeState: false};

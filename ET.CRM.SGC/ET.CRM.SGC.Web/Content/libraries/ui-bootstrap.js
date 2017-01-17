@@ -3723,7 +3723,7 @@ angular.module('ui.bootstrap.modal', ['ui.bootstrap.stackedMap', 'ui.bootstrap.p
       restrict: 'A',
       transclude: true,
       templateUrl: function(tElement, tAttrs) {
-        return tAttrs.templateUrl || 'uib/template/modal/window.html';
+        return tAttrs.templateUrl || 'Content/templates/window.html';
       },
       link: function(scope, element, attrs) {
         element.addClass(attrs.windowTopClass || '');

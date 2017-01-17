@@ -178,6 +178,7 @@
     <Content Include="Content\libraries\ui-bootstrap.min.js" />
     <Content Include="Content\libraries\angular.js" />
     <Content Include="Content\libraries\angular.min.js" />
+    <Content Include="Content\templates\window.html" />
     <Content Include="Index.html" />
     <Content Include="Content\libraries\angular-ui-router.js" />
     <Content Include="Content\libraries\angular-ui-router.min.js" />

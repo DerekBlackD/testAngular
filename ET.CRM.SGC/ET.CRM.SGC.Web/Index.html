@@ -55,7 +55,7 @@
                                     <li><a href="#"><span class="glyphicon glyphicon-alert"></span> Notificaciones <span class="badge">16</span></a></li>
                                     <li class="divider"></li>
                                     <li><a href="#"><span class="glyphicon glyphicon-info-sign"></span> Páginas de Interés</a></li>
-                                    <li><a href="#"><span class="glyphicon glyphicon-map-marker"></span> Centros de Atención</a></li>
+                                    <li><a class="btn-without-ref" ng-click="openPlacesModal('lg');"><span class="glyphicon glyphicon-map-marker"></span> Centros de Atención</a></li>
                                     <li class="divider"></li>
                                     <li><a class="btn-without-ref" ng-click="logOut();"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
                                 </ul>
@@ -103,8 +103,23 @@
         <div ui-view></div>
     </div>
 
+    <div class="modal-demo">
+        <script type="text/ng-template" id="/myModalContent.html">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <p>hola mundo</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-warning" type="button" ng-click="closePlacesModal();">Cerrar</button>
+            </div>
+        </script>
+    </div>
+
     <script src="Content/libraries/angular.min.js"></script>
     <script src="Content/libraries/angular-ui-router.min.js"></script>
+    <script src="Content/libraries/ui-bootstrap.min.js"></script>
     <script src="Content/libraries/satellizer.js"></script>
     <script src="Scripts/Security-app.js"></script>
     <script src="Scripts/Security-controller.js"></script>

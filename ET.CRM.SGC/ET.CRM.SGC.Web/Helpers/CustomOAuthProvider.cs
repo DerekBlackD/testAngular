@@ -35,15 +35,15 @@ namespace ET.CRM.SGC.Web.Helpers
             if (oUser.State == 0)
             {
                 context.SetError("invalid_grant", "The user name or password is incorrect.");
-                context.Rejected();
-                return Task.FromResult<object>(null);
+                //context.Rejected();
+                return Task.FromResult<object>(context);
             }
 
             if (oUser.State == 2)
             {
                 context.SetError("invalid_grant", "The user has expired.");
-                context.Rejected();
-                return Task.FromResult<object>(null);
+                //context.Rejected();
+                return Task.FromResult<object>(context);
             }
 
             var ticket = new AuthenticationTicket(SetClaimsIdentity(context, oUser), new AuthenticationProperties());

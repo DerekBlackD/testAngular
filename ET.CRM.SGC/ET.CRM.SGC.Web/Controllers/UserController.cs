@@ -19,6 +19,13 @@ namespace ET.CRM.SGC.Web.Controllers
             return new string[] { "value1", "value2" };
         }
 
+        [Route("api/User/ChangePassword")]
+        [HttpPost]
+        public String getOtherID()
+        {
+            return "Probando rutas";
+        }
+
         // GET: api/User/5
         [Authorize]
         public User Get(int BusinessID, int ID)

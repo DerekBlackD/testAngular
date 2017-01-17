@@ -1,9 +1,29 @@
 ﻿(function () {
     'use strict';
     angular.module('Security')
-    .controller('principalController', ['$rootScope', '$scope', '$auth', '$state', 'userService', function ($rootScope, $scope, $auth, $state, userService) {
+    .controller('principalController', ['$rootScope', '$scope', '$auth', '$state', '$uibModal', 'userService', function ($rootScope, $scope, $auth, $state, $uibModal, userService) {
         $scope.menu = {};
         $scope.userData = {};
+
+        $scope.openPlacesModal = function (size) {
+            var modalInstance = $uibModal.open({
+                animation: true,
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: '/myModalContent.html',
+                controller: 'principalController',
+                size: size
+            });
+
+
+            modalInstance.result.then(function (selectedItem) {
+                console.log('hola mundo');
+            });
+        };
+
+        $scope.closePlacesModal = function () {
+            $scope.dismiss({ $value: 'cancel' });
+        };
 
         $scope.loadMenu = function () {
             userService.getMenuByProfileID().then(function (data) {
@@ -54,13 +74,12 @@
                 $state.go("Collection");
             })
             .catch(function (response) {
-                console.log("Error de autenticación");
+                console.log(response.data.error_description);
             });
 
         };
 
     }])
-
     .controller('portfolioCustomerController', ['$scope', '$state', function ($scope, $state) {
         $scope.tab = 1;
         $scope.selectTab = function (tabSel) {

@@ -41,6 +41,8 @@ namespace ET.CRM.SGC.DataAccess
             }
             else
             {
+                oUser.BusinessID = 0;
+                oUser.ID = 0;
                 oUser.State = 0;
             }
             return oUser;

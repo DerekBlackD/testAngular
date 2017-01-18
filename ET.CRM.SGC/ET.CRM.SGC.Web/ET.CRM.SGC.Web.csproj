@@ -190,6 +190,7 @@
     <Content Include="Scripts\Security-app.js" />
     <Content Include="Scripts\Security-controller.js" />
     <Content Include="Scripts\Security-service.js" />
+    <Content Include="Views\ChooseProfile.html" />
     <Content Include="Views\Collection\AddressManagement\DeleteManagement.html" />
     <Content Include="Views\Collection\AddressManagement\EditManagement.html" />
     <Content Include="Views\Collection\AddressManagement\IndexManagement.html" />

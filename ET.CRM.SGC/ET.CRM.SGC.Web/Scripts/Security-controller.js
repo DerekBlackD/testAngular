@@ -15,10 +15,9 @@
                 size: size
             });
 
-
-            modalInstance.result.then(function (selectedItem) {
-                console.log('hola mundo');
-            });
+            //modalInstance.result.then(function (selectedItem) {
+            //    console.log('hola mundo');
+            //});
         };
 
         $scope.closePlacesModal = function () {
@@ -40,33 +39,23 @@
         $scope.logOut = function () {
             $auth.logout()
             .then(function () {
-                $rootScope.loadStates.menuState = !$rootScope.loadStates.menuState;
-                $rootScope.loadStates.userState = !$rootScope.loadStates.userState;
-                $rootScope.loadStates.homeState = !$rootScope.loadStates.homeState;
+                $rootScope.loadPrincipalControls = false;
                 $state.go("Home");
             });
         };
         
     }])
     .controller('loginController', ['$rootScope', '$scope', '$state', '$auth', function ($rootScope, $scope, $state, $auth) {
-
-        $auth.logout()
-            .then(function () {
-                $rootScope.loadStates.menuState = false
-                $rootScope.loadStates.userState = false
-                $rootScope.loadStates.homeState = false
-                $state.go("Home");
-            });
-
+        $scope.showMessage = false;
+        $scope.Message = "";
+        $scope.$parent.logOut();
         $scope.login = function () {
             $auth.login({
                 username: $scope.login.UserName,
                 password: $scope.login.Password
             })
             .then(function () {
-                $rootScope.loadStates.menuState = !$rootScope.loadStates.menuState;
-                $rootScope.loadStates.userState = !$rootScope.loadStates.userState;
-                $rootScope.loadStates.homeState = !$rootScope.loadStates.homeState;
+                $rootScope.loadPrincipalControls = true;
                 $scope.payLoad = $auth.getPayload();
                 console.log($scope.payLoad.BusinessID);
                 console.log($scope.payLoad.ID);
@@ -74,7 +63,8 @@
                 $state.go("Collection");
             })
             .catch(function (response) {
-                console.log(response.data.error_description);
+                $scope.showMessage = !$scope.showMessage;
+                $scope.Message = response.data.error_description;
             });
 
         };

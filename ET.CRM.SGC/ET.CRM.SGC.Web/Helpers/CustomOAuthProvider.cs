@@ -2,6 +2,7 @@
 using Microsoft.Owin.Security.OAuth;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Security.Claims;
 using System.Security.Principal;
@@ -34,14 +35,14 @@ namespace ET.CRM.SGC.Web.Helpers
 
             if (oUser.State == 0)
             {
-                context.SetError("invalid_grant", "The user name or password is incorrect.");
+                context.SetError("invalid_grant", ConfigurationManager.AppSettings["strCredentialsIncorrect"]);
                 //context.Rejected();
                 return Task.FromResult<object>(context);
             }
 
             if (oUser.State == 2)
             {
-                context.SetError("invalid_grant", "The user has expired.");
+                context.SetError("invalid_grant", ConfigurationManager.AppSettings["strUserHasExpired"]);
                 //context.Rejected();
                 return Task.FromResult<object>(context);
             }

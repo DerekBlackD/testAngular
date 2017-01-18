@@ -48,7 +48,7 @@
                             <li><a href="#" class="btn-lg"><strong>MC Recupero</strong></a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li class="dropdown" ng-show="loadStates.userState">
+                            <li class="dropdown" ng-show="loadPrincipalControls">
                                 <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Fulanita Gonzáles Arias <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Cambiar password</a></li>
@@ -60,7 +60,7 @@
                                     <li><a class="btn-without-ref" ng-click="logOut();"><span class="glyphicon glyphicon-off"></span> Cerrar sesión</a></li>
                                 </ul>
                             </li>
-                            <li ng-show="loadStates.homeState"><a href="#/Cobranza/Home" data-toggle="tooltip" data-original-title="Principal" data-placement="bottom" title=""><span class="glyphicon glyphicon-home"></span></a></li>
+                            <li ng-show="loadPrincipalControls"><a href="#/Cobranza/Home" data-toggle="tooltip" data-original-title="Principal" data-placement="bottom" title=""><span class="glyphicon glyphicon-home"></span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
     </header>
     <!-- Header -->
     <!-- Menu - Vertical -->
-    <div id="menuHor" class="menu" ng-show="loadStates.menuState">
+    <div id="menuHor" class="menu" ng-show="loadPrincipalControls">
         <a class="btn-show"></a>
         <a class="logo" href="#">
             <div class="text-center">

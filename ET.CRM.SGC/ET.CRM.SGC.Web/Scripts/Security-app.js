@@ -2,7 +2,7 @@
     var app = angular.module('Security', ['ui.router', 'ui.bootstrap', 'satellizer']);
 
     app.run(['$rootScope', function ($rootScope) {
-        $rootScope.loadStates = {menuState : false, userState: false, homeState: false};
+        $rootScope.loadPrincipalControls = false;
     }]);
 
     app.config(['$stateProvider', '$urlRouterProvider', '$authProvider', function ($stateProvider, $urlRouterProvider, $authProvider) {

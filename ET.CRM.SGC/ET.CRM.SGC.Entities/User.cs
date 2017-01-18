@@ -18,6 +18,7 @@ namespace ET.CRM.SGC.Entities
         public DateTime EffectiveDate { get; set; }
         public int NumberOfNotifications { get; set; }
         public int State { get; set; }
+        public List<Profile> Profiles { get; set; }
     }
 
     public class Profile
@@ -26,6 +27,7 @@ namespace ET.CRM.SGC.Entities
         public int UserID { get; set; }
         public int ID { get; set; }
         public String Description { get; set; }
+        public List<Menu> Menu { get; set; }
     }
 
     public class Menu

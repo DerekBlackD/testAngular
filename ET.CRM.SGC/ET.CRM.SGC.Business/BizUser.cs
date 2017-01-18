@@ -21,6 +21,7 @@ namespace ET.CRM.SGC.Business
         {
             User oUser = new User();
             oUser = oDtaUser.getUserByID(BusinessID, UserID);
+            oUser.Profiles = oDtaUser.getProfileByUserID(BusinessID, UserID);
             return oUser;
         }
     }

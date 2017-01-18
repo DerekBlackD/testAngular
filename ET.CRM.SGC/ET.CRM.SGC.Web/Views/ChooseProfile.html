@@ -8,20 +8,16 @@
             <div class="panel-body">
                 <form name="formLogin" ng-submit="login()" method="post" role="form">
                     <div class="form-group">
-                        <label for="lblUser">Usuario</label>
+                        <label for="lblProfile">Seleccionar perfil</label>
                         <input type="text" class="form-control" id="lblUser" placeholder="Usuario" ng-model="login.UserName">
-                    </div>
-                    <div class="form-group">
-                        <label for="lblPassword">Contraseña</label>
-                        <input type="password" class="form-control" id="lblPassword" placeholder="Password" ng-model="login.Password">
+                        <select class="form-control" id="lblProfile">
+                            <option>Perfil 1</option>
+                            <option>Perfil 2</option>
+                        </select>
                     </div>
                     <br />
-                    <!--<div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Recordar sesión
-                        </label>
-                    </div>-->
-                    <div class="alert alert-danger" role="alert" ng-show="showMessage"><b>¡Error!</b> {{Message}}</div>
+
+                    <!--<div class="alert alert-danger" role="alert" ng-show="showMessage"><b>¡Error!</b> {{Message}}</div>-->
                     <div class="text-right">
                         <button type="submit" class="btn btn-info">Ingresar</button>
                     </div>
@@ -32,12 +28,3 @@
     </div>
     <div class="col-md-3"></div>
 </div>
-<div class="text-center">
-
-
-</div>
-<footer class="footer">
-    <div class="container">
-        <h4>ERA Technologies, todos los derechos reservados</h4>
-    </div>
-</footer>

@@ -81,3 +81,12 @@ is the default in type.less */
 .btn-without-ref{
     cursor:pointer;
 }
+
+/* Validaciones */
+/*.ng-invalid.ng-touched.ng-untouched {
+  border-color: #D9230F;
+}*/
+
+form.ng-submitted input.ng-invalid{
+    border-color: #D9230F;
+}

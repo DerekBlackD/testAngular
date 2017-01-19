@@ -30,9 +30,31 @@
             });
         };
 
+        $scope.validateUser = function () {
+            $scope.payLoad = $auth.getPayload();
+            //$scope.getUserByID($scope.payLoad.BusinessID, $scope.payLoad.ID).then(function () {
+            //    console.log($scope.userData);
+            //});
+
+            userService.getUserByID($scope.payLoad.BusinessID, $scope.payLoad.ID).then(function (data) {
+                $scope.userData = data;
+                //console.log($scope.userData);
+                if ($scope.userData.Profiles.length == 1) {
+                    $scope.loadMenu();
+                    $state.go("Collection");
+                } else if ($scope.userData.Profiles.length > 1) {
+                    $state.go("ChooseProfile");
+                } else {
+                    //$state.go("error");
+                }
+            });
+            
+        };
+
         $scope.getUserByID = function (BusinessID, ID) {
             userService.getUserByID(BusinessID, ID).then(function (data) {
                 $scope.userData = data;
+                //console.log($scope.userData);
             });
         }
 
@@ -56,14 +78,10 @@
             })
             .then(function () {
                 $rootScope.loadPrincipalControls = true;
-                $scope.payLoad = $auth.getPayload();
-                console.log($scope.payLoad.BusinessID);
-                console.log($scope.payLoad.ID);
-                $scope.$parent.loadMenu();
-                $state.go("Collection");
+                $scope.$parent.validateUser();
             })
             .catch(function (response) {
-                $scope.showMessage = !$scope.showMessage;
+                $scope.showMessage = true;
                 $scope.Message = response.data.error_description;
             });
 

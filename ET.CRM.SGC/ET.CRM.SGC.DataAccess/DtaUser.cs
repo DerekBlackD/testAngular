@@ -11,7 +11,7 @@ namespace ET.CRM.SGC.DataAccess
     {
         private static List<User> lstUsers = new List<User> { 
         new User{ BusinessID = 1, ID = 1, UserName="jpena", FullName = "Junior Peña", Email="juniorp@eratec.com", Password="977bad728c0477bde9231b3f65d7f965d5cc20a22c20a71fba94cb1532959bdf", NumberOfNotifications = 12, State = 1},
-        new User{ BusinessID = 1, ID = 2, UserName= "asoto", FullName= "Alejandra Soto", Email="asoto@eratec.com", Password="942678ce85a4b1a4e11658f77e61b022a178acb6319abc7d359bb54e89ae66bb", NumberOfNotifications = 4, State = 1}};
+        new User{ BusinessID = 1, ID = 2, UserName= "asoto", FullName= "Alejandra Soto", Email="asoto@eratec.com", Password="977bad728c0477bde9231b3f65d7f965d5cc20a22c20a71fba94cb1532959bdf", NumberOfNotifications = 4, State = 1}};
 
         private static List<Profile> lstProfiles = new List<Profile> {
             new Profile{ BusinessID = 1, UserID = 1, ID = 1, Description = "Administrador"},

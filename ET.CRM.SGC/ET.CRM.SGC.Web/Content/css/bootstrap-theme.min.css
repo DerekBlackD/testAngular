@@ -3362,7 +3362,7 @@ textarea.input-lg, select[multiple].input-lg {
 
 @media (min-width:768px) {
     .form-horizontal .control-label {
-        text-align: right;
+        /* text-align: right; MOD1 - JPeña */
         margin-bottom: 0;
         padding-top: 9px;
     }
@@ -5878,7 +5878,7 @@ a.list-group-item-danger, button.list-group-item-danger {
 }
 
 .panel-body {
-    padding: 5px; /* Mod1 - Junior Peña */
+    padding: 15px; /* Mod1 - Junior Peña */
 }
 
 .panel-heading {

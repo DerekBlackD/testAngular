@@ -30,6 +30,10 @@
             templateUrl: '/Views/Login.html',
             controller: 'loginController'
         })
+        .state('ChooseProfile', {
+            url: '/ElegirPerfil',
+            templateUrl: '/Views/ChooseProfile.html'
+        })
         .state('Collection', {
             url: '/Cobranza/Inicio',
             templateUrl: '/Views/Collection/Home.html',

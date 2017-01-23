@@ -19,6 +19,15 @@ namespace ET.CRM.SGC.DataAccess
             new Profile{ BusinessID = 1, UserID = 2, ID = 3, Description = "Gestor"}
         };
 
+        private static List<Menu> lstMenu = new List<Menu>
+        {new Menu { BusinessID = 1, ProfileID = 1, ID = 1, Name = "Cobranza" },
+         new Menu { BusinessID = 1, ProfileID = 1, ID = 2, Name = "Administración" },
+         new Menu { BusinessID = 1, ProfileID = 1, ID = 3, Name = "Consultas" },
+         new Menu { BusinessID = 1, ProfileID = 1, ID = 4, Name = "Importaciones" },
+         new Menu { BusinessID = 1, ProfileID = 1, ID = 5, Name = "Soporte" },
+         new Menu { BusinessID = 1, ProfileID = 1, ID = 6, Name = "Seguridad" }
+        }
+
         public User ValidateLogin(String UserName, String Password)
         {
             /* clave: eratec - varchar(64)

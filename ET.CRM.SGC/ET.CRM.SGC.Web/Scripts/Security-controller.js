@@ -1,9 +1,19 @@
 ﻿(function () {
     'use strict';
     angular.module('Security')
-    .controller('principalController', ['$rootScope', '$scope', '$auth', '$state', '$uibModal', 'userService', function ($rootScope, $scope, $auth, $state, $uibModal, userService) {
+    .controller('principalController', ['$rootScope', '$scope', '$auth', '$state', '$uibModal', '$window', 'userService', function ($rootScope, $scope, $auth, $state, $uibModal, $window, userService) {
         $scope.menu = {};
-        $scope.userData = {};
+        $scope.guserData = {}; /* Global user data */
+        $scope.gprofile = {}; /* Global profile */
+
+        if ($window.sessionStorage.getItem("userData")) {
+            $scope.guserData = JSON.parse($window.sessionStorage.getItem("userData"));
+            $scope.gprofile = JSON.parse($window.sessionStorage.getItem("profileData"));
+        };
+
+        if ($auth.isAuthenticated()) {
+            $rootScope.loadPrincipalControls = true;
+        };
 
         $scope.openPlacesModal = function (size) {
             var modalInstance = $uibModal.open({
@@ -15,9 +25,6 @@
                 size: size
             });
 
-            //modalInstance.result.then(function (selectedItem) {
-            //    console.log('hola mundo');
-            //});
         };
 
         $scope.closePlacesModal = function () {
@@ -32,17 +39,17 @@
 
         $scope.validateUser = function () {
             $scope.payLoad = $auth.getPayload();
-            //$scope.getUserByID($scope.payLoad.BusinessID, $scope.payLoad.ID).then(function () {
-            //    console.log($scope.userData);
-            //});
 
             userService.getUserByID($scope.payLoad.BusinessID, $scope.payLoad.ID).then(function (data) {
-                $scope.userData = data;
-                //console.log($scope.userData);
-                if ($scope.userData.Profiles.length == 1) {
+                $scope.guserData = data;
+                $window.sessionStorage.setItem("userData", JSON.stringify($scope.guserData));
+                if ($scope.guserData.Profiles.length == 1) {
+                    $scope.gprofile.ID = $scope.guserData.Profiles[0].ID;
+                    $scope.gprofile.Description = $scope.guserData.Profiles[0].Description;
+                    $window.sessionStorage.setItem("profileData", JSON.stringify($scope.gprofile));
                     $scope.loadMenu();
                     $state.go("Collection");
-                } else if ($scope.userData.Profiles.length > 1) {
+                } else if ($scope.guserData.Profiles.length > 1) {
                     $state.go("ChooseProfile");
                 } else {
                     //$state.go("error");
@@ -50,13 +57,6 @@
             });
             
         };
-
-        $scope.getUserByID = function (BusinessID, ID) {
-            userService.getUserByID(BusinessID, ID).then(function (data) {
-                $scope.userData = data;
-                //console.log($scope.userData);
-            });
-        }
 
         $scope.logOut = function () {
             $auth.logout()
@@ -87,6 +87,18 @@
 
         };
 
+    }])
+    .controller('chooseProfileController', ['$rootScope', '$scope', '$state', '$window', function ($rootScope, $scope, $state, $window) {
+        $scope.dataProfiles = $scope.$parent.guserData.Profiles;
+        $scope.oProfile = $scope.dataProfiles[0];
+
+        $scope.f_ToEnter = function () {
+            $scope.$parent.gprofile.ID = $scope.oProfile.ID;
+            $scope.$parent.gprofile.Description = $scope.oProfile.Description;
+            $window.sessionStorage.setItem("profileData", JSON.stringify($scope.$parent.gprofile));
+            $scope.$parent.loadMenu();
+            $state.go("Collection");
+        };
     }])
     .controller('portfolioCustomerController', ['$scope', '$state', function ($scope, $state) {
         $scope.tab = 1;

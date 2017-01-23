@@ -32,7 +32,8 @@
         })
         .state('ChooseProfile', {
             url: '/ElegirPerfil',
-            templateUrl: '/Views/ChooseProfile.html'
+            templateUrl: '/Views/ChooseProfile.html',
+            controller: 'chooseProfileController'
         })
         .state('Collection', {
             url: '/Cobranza/Inicio',
